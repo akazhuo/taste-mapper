@@ -1,0 +1,8 @@
+@use '@/uni.scss';
+
+page {
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: uni.$page-bg;
+  padding-bottom: uni.$bottom-nav-height;
+}
