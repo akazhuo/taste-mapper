@@ -65,7 +65,7 @@
   }
   
   const onClickSwipeAction = (id) => {
-    console.log(id)
+    delItem(id)
   }
 
   onShow(() => {
