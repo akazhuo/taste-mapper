@@ -10,4 +10,4 @@ router.post('/add', createItem)
 
 router.delete('/del', delItem)
 
-module.exports = router;
+export default router;

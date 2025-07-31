@@ -33,6 +33,7 @@ export const createItem = function(req: Request, res: Response, next: NextFuncti
 }
 
 export const delItem = function(req: Request, res: Response, next: NextFunction) {
+  console.log(req.body);
   TasteModel.findByIdAndDelete(req.body.id).then((r) => res.status(200).send(
     {
       msg: '删除成功',
