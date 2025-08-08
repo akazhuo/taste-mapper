@@ -1,6 +1,8 @@
 <template>
   <view class="app-page">
-    <top-bar></top-bar>
+    <banner></banner>
+    <category></category>
+    <discount></discount>
     <div class="data-panel">
       <div class="panel-title">最近添加</div>
       <div class="panel-content  recent-list">
@@ -23,7 +25,9 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import TopBar from '@/components/top-bar.vue'
+  import Banner from './components/banner.vue'
+  import Category from './components/category.vue'
+  import Discount from './components/discount.vue'
   import BottomNav from '@/components/bottom-nav.vue'
   import { onShow } from '@dcloudio/uni-app'
 
@@ -36,7 +40,7 @@
     }
   }]
 
-  const delItem = (id) => {
+  const delItem = (id: string) => {
     uni.request({
       url: 'http://localhost:3000/taste/del',
       data: { id },

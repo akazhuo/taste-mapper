@@ -1,5 +1,5 @@
 <template>
-  <view class="top-bar">
+  <view class="banner">
     <view class="user-info">
       <view class="address-info">
         <img class="map-pin" src="@/static/map-pin.svg" alt="" />
@@ -38,7 +38,7 @@
 
 <style lang="scss" scoped>
   @use '@/styles/colors.scss';
-  .top-bar {
+  .banner {
     padding: 16px 0;
     background: 0 0/cover url('@/static/Background.svg');
 
