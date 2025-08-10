@@ -6,3 +6,8 @@ page {
   background-color: uni.$page-bg;
   padding-bottom: uni.$bottom-nav-height;
 }
+
+.page {
+  height: 100%;
+  overflow-y: scroll;
+}

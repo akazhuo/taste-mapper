@@ -1,5 +1,5 @@
 <template>
-  <view class="banner">
+  <view class="index-component banner">
     <view class="user-info">
       <view class="address-info">
         <img class="map-pin" src="@/static/map-pin.svg" alt="" />

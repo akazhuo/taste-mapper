@@ -1,5 +1,5 @@
 <template>
-  <div class="category">
+  <div class="index-component category">
     <div class="header">
       <div class="title">美食分类</div>
       <div class="browser">
@@ -7,24 +7,26 @@
         <img class="chevron-right" src="@/static/chevron-right.svg" alt="" />
       </div>
     </div>
-    <div class="cate-list">
-      <div class="cate-item">
-        <img class="img" src="@/static/breakfast.svg" alt="" />
-        <div class="text">早餐</div>
+    <view class="body">
+      <div class="cate-list">
+        <div class="cate-item">
+          <img class="img" src="@/static/breakfast.svg" alt="" />
+          <div class="text">早餐</div>
+        </div>
+        <div class="cate-item">
+          <img class="img" src="@/static/hamburger.svg" alt="" />
+          <div class="text">汉堡包</div>
+        </div>
+        <div class="cate-item">
+          <img class="img" src="@/static/pizza.svg" alt="" />
+          <div class="text">披萨</div>
+        </div>
+        <div class="cate-item">
+          <img class="img" src="@/static/coffee.png" alt="" />
+          <div class="text">咖啡</div>
+        </div>
       </div>
-      <div class="cate-item">
-        <img class="img" src="@/static/hamburger.svg" alt="" />
-        <div class="text">汉堡包</div>
-      </div>
-      <div class="cate-item">
-        <img class="img" src="@/static/pizza.svg" alt="" />
-        <div class="text">披萨</div>
-      </div>
-      <div class="cate-item">
-        <img class="img" src="@/static/coffee.png" alt="" />
-        <div class="text">咖啡</div>
-      </div>
-    </div>
+    </view>
   </div>
 </template>
 
@@ -35,36 +37,7 @@
 <style lang="scss" scoped>
   @use '@/styles/colors.scss';
 .category {
-  margin: 24px 0;
-  padding: 0 20px;
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    .title {
-      flex: 1;
-      color: colors.$Ambient-80;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 28px;
-    }
-    
-    .browser {
-      display: flex;
-      color: colors.$Primary-125;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 16px;
-      align-items: center;
-      
-      .chevron-right {
-        width: 16px;
-        height: 16px;
-      }
-    }
-  }
+  padding-bottom: 16px;
   
   .cate-list {
     display: grid;

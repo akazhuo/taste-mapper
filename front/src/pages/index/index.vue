@@ -1,8 +1,9 @@
 <template>
-  <view class="app-page">
+  <view class="page">
     <banner></banner>
     <category></category>
     <discount></discount>
+    <picks></picks>
     <div class="data-panel">
       <div class="panel-title">最近添加</div>
       <div class="panel-content  recent-list">
@@ -28,6 +29,7 @@
   import Banner from './components/banner.vue'
   import Category from './components/category.vue'
   import Discount from './components/discount.vue'
+  import Picks from './components/picks.vue'
   import BottomNav from '@/components/bottom-nav.vue'
   import { onShow } from '@dcloudio/uni-app'
 
@@ -67,7 +69,7 @@
       }
     })
   }
-  
+
   const onClickSwipeAction = (id) => {
     delItem(id)
   }
@@ -76,6 +78,47 @@
     getList()
   })
 </script>
+
+<style lang="scss">
+  @use '@/styles/colors.scss';
+
+  .index-component {
+    margin-top: 24px;
+    padding: 0 20px;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        flex: 1;
+        color: colors.$Ambient-80;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28px;
+      }
+
+      .browser {
+        display: flex;
+        color: colors.$Primary-125;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        align-items: center;
+
+        .chevron-right {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+    
+    .body {
+      margin-top: 16px;
+    }
+  }
+</style>
 
 <style lang="scss" scoped>
   .data-panel {
@@ -116,7 +159,7 @@
       .name {
         font-size: 16px;
       }
-      
+
       .shop {
         color: #8f939c;
       }
