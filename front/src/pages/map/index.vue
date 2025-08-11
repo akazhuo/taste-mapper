@@ -50,7 +50,9 @@ import { log } from 'console'
   
   const clickSearch = () => {
     markers.value = []
-    search({ keyword: keyword.value, region: store.address.ad_info.city, location: store.address.location.lat + ',' + store.address.location.lng }).then(pois => {
+    const region = store.address.ad_info.city
+    const location = store.address.location.lat + ',' + store.address.location.lng
+    search({ keyword: keyword.value, region, location }).then(pois => {
       dataList.value = pois
       pois.forEach((poi, index) => {
         markers.value.push({
