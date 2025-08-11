@@ -1,12 +1,36 @@
 <script lang="ts" setup>
   import horizontalList from './horizontal-list.vue'
   import { TagType, type Item } from '@/types/horizontal-list.d.ts';
-  import muffinImg from '@/static/muffin.png'
-  import coffee2Img from '@/static/coffee2.png'
-  import pizzaImg from '@/static/pizza.png'
+  import stellarSipsImg from '@/static/stellar-sips.png'
+  import zenPalaceCuisineImg from '@/static/zen-palace-cuisine.png'
+  import unknownFoodImg from '@/static/unknown-food.png'
   const dataList : Item[] = [
     {
-      name: '河内松饼店',
+      name: '一流的饮品和小吃',
+      delivery: {
+        times: 16,
+        distance: 5
+      },
+      tag: {
+        title: '特价',
+        type: TagType.thumbsUp
+      },
+      thumb: stellarSipsImg
+    },
+    {
+      name: '禅宫料理',
+      delivery: {
+        times: 16,
+        distance: 5
+      },
+      tag: {
+        title: '特价',
+        type: TagType.trendingUp
+      },
+      thumb: zenPalaceCuisineImg
+    },
+    {
+      name: '未知料理',
       delivery: {
         times: 16,
         distance: 5
@@ -15,37 +39,14 @@
         title: '特价',
         type: TagType.tag
       },
-      thumb: muffinImg
-    },
-    {
-      name: '街角咖啡店',
-      delivery: {
-        times: 16,
-        distance: 5
-      },
-      tag: {
-        title: '特价',
-        type: TagType.truck
-      },
-      thumb: coffee2Img
-    },
-    {
-      name: '披萨店',
-      delivery: {
-        times: 16,
-        distance: 5
-      },
-      tag: {
-        title: '特价',
-        type: TagType.tag
-      },
-      thumb: pizzaImg
+      thumb: unknownFoodImg
     }
   ]
 </script>
 
 <template>
-   <horizontal-list title="精选" :dataList="dataList"></horizontal-list>
+   <horizontal-list title="热卖" :dataList="dataList"></horizontal-list>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+</style>

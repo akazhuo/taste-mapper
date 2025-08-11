@@ -4,6 +4,7 @@
     <category></category>
     <discount></discount>
     <picks></picks>
+    <best-selling></best-selling>
     <div class="data-panel">
       <div class="panel-title">最近添加</div>
       <div class="panel-content  recent-list">
@@ -30,6 +31,7 @@
   import Category from './components/category.vue'
   import Discount from './components/discount.vue'
   import Picks from './components/picks.vue'
+  import BestSelling from './components/best-selling.vue'
   import BottomNav from '@/components/bottom-nav.vue'
   import { onShow } from '@dcloudio/uni-app'
 
