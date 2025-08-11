@@ -24,7 +24,7 @@ import { computed, h } from 'vue';
       activeImg: '/static/plus-filled.svg'
     },
     {
-      url: '/pages/user/index',
+      url: '/pages/member/member',
       img: '/static/user.svg',
       activeImg: '/static/user-filled.svg'
     }

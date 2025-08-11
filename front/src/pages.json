@@ -18,6 +18,13 @@
       {
         "navigationBarTitleText" : ""
       }
+    },
+    {
+      "path" : "pages/member/member",
+      "style" : 
+      {
+        "navigationBarTitleText" : "个人中心"
+      }
     }
 	],
 	"globalStyle": {
