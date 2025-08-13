@@ -25,7 +25,6 @@
   import { qqmapsdk, getUserLocation, getSuggestion, search } from '@/composables/map'
   import { ref, computed } from 'vue'
   import _ from 'lodash'
-import { log } from 'console'
   
   const store = userStore()
   const poiStoreInst = poiStore()

@@ -1,5 +1,4 @@
 // const amapFile = require('./libs/amap-wx.js')
-import { resolve } from 'dns';
 import QQMapWX from '../libs/qqmap-wx-jssdk.min.js';
 import type { UserAddress } from '../types/global'
 import { userStore } from '@/stores/user'
