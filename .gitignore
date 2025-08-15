@@ -3,3 +3,4 @@ qqmap-wx-jssdk.min.js
 express/
 server/public/uploads/
 server/.idea/vcs.xml
+server/.env.development
