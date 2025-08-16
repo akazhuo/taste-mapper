@@ -1,24 +1,34 @@
 // 获取用户信息
 import { userStore } from '@/stores/user'
 import type { UserInfo } from '../types/global'
+const store = userStore()
+/**
+ * 检查登录状态是否过期
+ */
+export const checkLoginSession = () => {
+  return new Promise<void>((resolve, reject) => {
+    uni.checkSession({
+      success() {
+        resolve()
+      },
+      fail() {
+        reject()
+      },
+      complete() {
+        
+      }
+    })
+  })
+}
 
-export const getUserProfile = (callback: (res) => {}) => {
-  uni.authorize({
-    scope: 'scope.userInfo',
-    success(res) {
-      console.log(res)
-      uni.getUserProfile({
-        desc: '用户展示用户头像',
-        success(res) {
-          console.log(res)
-          const store = userStore()
-          store.setUserInfo(res.userInfo)
-          callback(res.userInfo)
-        }
-      })
+export const codeLogin = () => {
+  uni.login({
+    success(authResult?, code?, appleInfo?, errMsg) {
+      console.log(authResult)
     },
     fail(err) {
-      console.log(err)
+      
+        console.log(err)
     }
   })
 }
