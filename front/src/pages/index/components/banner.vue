@@ -24,10 +24,10 @@
   import { ref, reactive } from 'vue'
   import { getUserLocation } from '@/composables/map.ts'
   import type { UserAddress } from '@/types/global.js'
-  import { userStore } from '@/stores/user'
+  import { useUserStore } from '@/stores/user'
 
   
-  const store = userStore()
+  const store = useUserStore()
   const userAddress = ref('')
   getUserLocation().then((res: UserAddress) => {
     userAddress.value = res.address

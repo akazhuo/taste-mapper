@@ -1,7 +1,5 @@
 // 获取用户信息
-import { userStore } from '@/stores/user'
 import type { UserInfo } from '../types/global'
-const store = userStore()
 /**
  * 检查登录状态是否过期
  */
@@ -22,13 +20,31 @@ export const checkLoginSession = () => {
 }
 
 export const codeLogin = () => {
-  uni.login({
-    success(authResult?, code?, appleInfo?, errMsg) {
-      console.log(authResult)
-    },
-    fail(err) {
-      
-        console.log(err)
-    }
+  return new Promise<void>((resolve, reject) => {
+    uni.login({
+      success(authResult?, code?, appleInfo?, errMsg) {
+        uni.request({
+          url: 'http://localhost:3000/user/codeLogin',
+          data: { code: authResult.code },
+          method: 'POST',
+          success (res) {
+            const { result } = res.data
+            uni.setStorageSync('userInfo', result.user)
+            uni.setStorageSync('accessToken', result.accessToken)
+            uni.setStorageSync('refreshToken', result.refreshToken)
+            resolve(result)
+          },
+          fail(err) {
+            console.log(err)
+            reject(err)
+          }
+        })
+      },
+      fail(err) {
+        
+          console.log(err)
+      }
+    })
   })
+
 }

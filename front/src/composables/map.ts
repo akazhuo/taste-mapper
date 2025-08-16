@@ -1,7 +1,7 @@
 // const amapFile = require('./libs/amap-wx.js')
 import QQMapWX from '../libs/qqmap-wx-jssdk.min.js';
 import type { UserAddress } from '../types/global'
-import { userStore } from '@/stores/user'
+import { useUserStore } from '@/stores/user'
 
 // 实例腾讯地图应用
 export const qqmapsdk = new QQMapWX({
@@ -17,7 +17,7 @@ interface Response {
 // 获取用户位置
 export const getUserLocation = () => {
   return new Promise(resolve => {
-    const store = userStore()
+    const store = useUserStore()
     // 已有缓存地址，直接返回
     console.log(store.address)
     if ( store.address ) {

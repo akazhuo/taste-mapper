@@ -2,10 +2,16 @@
   import { reactive, ref, computed } from 'vue';
   import bottomNav from '@/components/bottom-nav'
   import loginBtn from '@/components/login-btn'
+  import { codeLogin } from '@/composables/user'
+  import { useUserStore } from '@/stores/user'
+  import { imgUrl } from '@/composables/utils'
 
+  const defaultAvatar = imgUrl + '/images/avatar17.svg'
+  const store = useUserStore()
+  const storageUserInfo = uni.getStorageSync('userInfo')
   const userInfo = reactive({
-    head_pic: '',
-    nickname: ''
+    avatar: storageUserInfo.avatar || '',
+    nickName: storageUserInfo.nickName || ''
   })
   const linearShadeStyle = computed(() => {
     let
@@ -13,6 +19,12 @@
 
     return str
   })
+
+  const login = () => {
+    codeLogin().then(data => {
+      console.log(data)
+    })
+  }
 </script>
 <template>
   <view class="member-page">
@@ -21,11 +33,11 @@
       <view class="block-row user-info-opt">
         <view class="user-info">
           <view class="ui-avatar" bindtap="handleTap" data-router="/pages/member/completeProfile">
-            <image :src="userInfo.head_pic" mode="widthFix" alt="" class="img"></image>
+            <image :src="userInfo.avatar || defaultAvatar" mode="widthFix" alt="" class="img"></image>
             <!-- <view class="bg-img" style="background-image: url('{{ userInfo.head_pic }}')"></view> -->
           </view>
           <view class="ui-info">
-            <view class="user-name">{{ userInfo.nickname || '微信用户' }}</view>
+            <view class="user-name">{{ userInfo.nickName || '微信用户' }}</view>
           </view>
         </view>
         <view class="opt">
@@ -74,10 +86,19 @@
             <image class="arrow" mode="widthFix" src="/static/arrow-right-line.svg" alt=""></image>
           </view>
         </view>
- <!--       <view>
-          
-          <login-btn>登录</login-btn>
-        </view> -->
+        <!-- #ifdef APP -->
+        <view class="block-entry" @click="login">
+          <view class="l-wrap">
+            <view class="icon">
+              <image src="/static/settings-4-fill.svg" alt="" class="img" mode="widthFix"></image>
+            </view>
+            <view class="title">登录</view>
+          </view>
+          <view class="r-wrap">
+            <image class="arrow" mode="widthFix" src="/static/arrow-right-line.svg" alt=""></image>
+          </view>
+        </view>
+        <!-- #endif -->
       </view>
     </view>
   </view>

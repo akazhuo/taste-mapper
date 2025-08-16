@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
+import path from 'node:path'
 
-dotenv.config({ path: __dirname + '/.env' });
+dotenv.config();
 
 interface Config {
   port: number;

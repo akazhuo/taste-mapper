@@ -5,6 +5,7 @@ import { errorHandler } from './middlewares/errorHandler'
 import './middlewares/dbHandler'
 import TasteRoutes from './routes/tasteRoutes'
 import FileRoutes from './routes/fileRoutes'
+import UserRoutes from './routes/userRoutes'
 // bodyParser 处理中文乱码
 import bodyParser from 'body-parser';
 const app: Application = express();
@@ -23,6 +24,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 app.use('/taste', TasteRoutes);
 app.use('/file', FileRoutes);
+app.use('/user', UserRoutes);
 
 // 静态资源文件夹
 app.use('/uploads', express.static('public/uploads'))
@@ -31,7 +33,6 @@ app.use('/uploads', express.static('public/uploads'))
 app.use((req: Request, res: Response) => {
   res.status(404).json({ error: '404 无法找到该资源' });
 });
-
 // 全局错误处理
 app.use(errorHandler);
 

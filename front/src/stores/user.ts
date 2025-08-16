@@ -1,9 +1,14 @@
 import { defineStore } from 'pinia';
 import type { UserAddress, UserInfo } from '../types/global'
 // 用户 store
-export const userStore = defineStore('userStore', {
+export const useUserStore = defineStore('userStore', {
   state: () => { 
-    return { address: null, userInfo: null }
+    return { 
+      address: null, 
+      userInfo: { nickName: '', avatar: '' },
+      accessToken: '',
+      refreshToken: ''
+    }
   },
   getters: {
   },
@@ -13,6 +18,12 @@ export const userStore = defineStore('userStore', {
     },
     setUserInfo (info: UserInfo) {
       this.userInfo = info
+    },
+    setAccessToken (token: String) {
+      this.accessToken = token
+    },
+    setRefreshToken (token: String) {
+      this.refreshToken = token
     }
   },
 })

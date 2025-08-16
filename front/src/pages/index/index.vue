@@ -34,9 +34,10 @@
   import BestSelling from './components/best-selling.vue'
   import BottomNav from '@/components/bottom-nav.vue'
   import { onShow } from '@dcloudio/uni-app'
+  import { imgUrl } from '@/composables/utils'
 
   const dataList = ref([])
-  const IMG_PATH = 'http://localhost:3000/uploads/'
+  const IMG_PATH = imgUrl + '/uploads/'
   const swipeAcionOptions = [{
     text: '删除',
     style: {
@@ -44,7 +45,7 @@
     }
   }]
 
-  const delItem = (id: string) => {
+  const delItem = (id : string) => {
     uni.request({
       url: 'http://localhost:3000/taste/del',
       data: { id },
@@ -115,7 +116,7 @@
         }
       }
     }
-    
+
     .body {
       margin-top: 16px;
     }

@@ -20,13 +20,13 @@
 
 <script setup type="ts">
   import bottomNav from '@/components/bottom-nav'
-  import { userStore } from '@/stores/user'
+  import { useUserStore } from '@/stores/user'
   import { poiStore } from '@/stores/poi'
   import { qqmapsdk, getUserLocation, getSuggestion, search } from '@/composables/map'
   import { ref, computed } from 'vue'
   import _ from 'lodash'
   
-  const store = userStore()
+  const store = useUserStore()
   const poiStoreInst = poiStore()
   const longitude = computed(() => {
     return store.address ? store.address.location.lng : ''
