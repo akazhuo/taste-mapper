@@ -28,12 +28,8 @@ app.use('/user', UserRoutes);
 
 // 静态资源文件夹
 app.use('/uploads', express.static('public/uploads'))
+app.use('/images', express.static('public/images'))
 // 错误处理中间件
-// 404 处理
-app.use((req: Request, res: Response) => {
-  res.status(404).json({ error: '404 无法找到该资源' });
-});
-// 全局错误处理
 app.use(errorHandler);
 
 export default app;

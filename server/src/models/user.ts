@@ -1,7 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, ObjectId } from 'mongoose';
 
-export interface IUser extends Document {
-  _id: Schema.Types.ObjectId;
+export interface IUser extends Document<ObjectId> {
   nickName: string;
   openid: string;
   avatar: string;

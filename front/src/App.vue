@@ -17,6 +17,7 @@ onLaunch(() => {
     },
     fail() {
       console.log('check session fail')
+      codeLogin()
     }
   })
   // #endif

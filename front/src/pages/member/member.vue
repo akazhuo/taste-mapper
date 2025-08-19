@@ -27,7 +27,7 @@
   }
 </script>
 <template>
-  <view class="member-page">
+  <view class="inner-page member">
     <!-- 用户头部信息 -->
     <view class="page-block user-header bg-type-color" style="{{ memberHeaderStyle }}">
       <view class="block-row user-info-opt">

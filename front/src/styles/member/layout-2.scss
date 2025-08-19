@@ -1,0 +1,37 @@
+@use '../colors';
+// 个人中心布局2
+.member.layout-2 {
+  background-color: colors.$page-bg;
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .page-block {
+    border: unset;
+  }
+
+  .sort-block-list {
+    position: relative;
+    //margin-top: -8px;
+    padding-top: 16px;
+    border-top: unset;
+
+    .page-block {
+      margin: 0 16px 16px;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+  }
+
+  // 头部信息与下面排序模块渐变层
+  .linear-shade {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    //height: 240px;
+    z-index: -1;
+  }
+}

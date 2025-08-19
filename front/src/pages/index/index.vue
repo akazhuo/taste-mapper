@@ -35,6 +35,7 @@
   import BottomNav from '@/components/bottom-nav.vue'
   import { onShow } from '@dcloudio/uni-app'
   import { imgUrl } from '@/composables/utils'
+  import myRequest from '@/libs/request'
 
   const dataList = ref([])
   const IMG_PATH = imgUrl + '/uploads/'
@@ -59,17 +60,13 @@
   }
 
   const getList = () => {
-    uni.request({
+    myRequest.get({
       url: 'http://localhost:3000/taste',
-      method: 'GET',
-      data: {
-      },
-      success(res) {
-        dataList.value = res.data
-      },
-      fail(err) {
-        console.log(err)
-      }
+      data: {},
+    }).then(res => {
+      dataList.value = res.data
+    }).catch(err => {
+      console.log(err)
     })
   }
 

@@ -3,7 +3,10 @@ import { TasteModel, Taste } from '../models/taste';
 
 export const getItems = function(req: Request, res: Response, next: NextFunction) {
   TasteModel.find({}, "title pics shop date").then(function(dataList) {
-    res.send(dataList);
+    res.status(200).json({
+      code: 200,
+      data: dataList
+    });
   }).catch(function(err) {
     next(err)
   })

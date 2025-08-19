@@ -1,10 +1,12 @@
 @use '../colors.scss';
-  // 引入页面图标
-  @use './icons';
-  // 引入页面模块
-  @use'./user-header';
+// 引入页面图标
+@use './icons';
+// 引入页面模块
+@use'./user-header';
+//
+@use './layout-2';
 
-.member-page {
+.member {
   height: 100vh;
   background: #fff;
   font-size: 14px;
