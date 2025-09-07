@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import horizontalList from './horizontal-list.vue'
-  import { TagType, type Item } from '@/types/horizontal-list.d.ts';
+  import { TagType, type Item } from '@/types/horizontal-list.ts';
   import muffinImg from '@/static/muffin.png'
   import coffee2Img from '@/static/coffee2.png'
   import pizzaImg from '@/static/pizza.png'
