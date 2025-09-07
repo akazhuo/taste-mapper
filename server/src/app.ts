@@ -1,8 +1,8 @@
 require('dotenv').config()
 import express, { Application, Request, Response, NextFunction } from 'express';
 import morgan from 'morgan';
-import { errorHandler } from './middlewares/errorHandler'
-import './middlewares/dbHandler'
+import { handleError } from './middlewares/errorMiddleware'
+import './middlewares/dbMiddleware'
 import TasteRoutes from './routes/tasteRoutes'
 import FileRoutes from './routes/fileRoutes'
 import UserRoutes from './routes/userRoutes'
@@ -30,6 +30,6 @@ app.use('/user', UserRoutes);
 app.use('/uploads', express.static('public/uploads'))
 app.use('/images', express.static('public/images'))
 // 错误处理中间件
-app.use(errorHandler);
+app.use(handleError);
 
 export default app;
