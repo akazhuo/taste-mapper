@@ -15,23 +15,24 @@ export const getItems = function(req: Request, res: Response, next: NextFunction
 export const createItem = function(req: Request, res: Response, next: NextFunction) {
   const reqData = req.body;
   const taste = new TasteModel({
-    title: req.body.title,
-    comment: req.body.comment,
-    pics: req.body.pics,
-    date: req.body.date,
-    shop: req.body.shop,
+    title: reqData.title,
+    comment: reqData.comment,
+    pics: reqData.pics,
+    date: reqData.date,
+    shop: reqData.shop,
   });
-  taste.save().then((saved) => res.status(200).send(
-    {
+  taste.save().then((saved) => {
+    res.status(200).json({
       msg: '添加成功',
       code: 200,
-    }
-  )).catch((err) => {
-    res.status(500).send({
-      msg: err.message,
-      code: 500
-    });
-    next()
+      data: saved,
+    })
+  }).catch((err) => {
+    // res.status(500).json({
+    //   msg: err.message,
+    //   code: 500
+    // });
+    next(err)
   });
 }
 

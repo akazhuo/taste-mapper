@@ -1,13 +1,11 @@
-import mongoose from 'mongoose';
-
-const Schema = mongoose.Schema
+import { model, Schema, Types } from 'mongoose';
 
 export interface Taste {
   title: string;
   comment: string;
   pics: Array<string>;
   date: Date;
-  shop: string;
+  shop: Types.ObjectId;
 }
 
 const TasteSchema = new Schema({
@@ -15,8 +13,8 @@ const TasteSchema = new Schema({
   comment: { type: String, required: true },
   pics: { type: Array },
   date: { type: Date, required: true },
-  // shop: { type: Schema.Types.ObjectId, ref: 'Shop', required: true }
-  shop: { type: String, required: true },
+  shop: { type: Schema.Types.ObjectId, ref: 'Shop'},
+  // shop: { type: String, required: true },
 })
 
-export const TasteModel = mongoose.model('Taste', TasteSchema);
+export const TasteModel = model<Taste>('Taste', TasteSchema);
